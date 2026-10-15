@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>On-Rent Board</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9ECEA; --panel:#FFFFFF; --ink:#1C2430; --muted:#5B6573; --line:#CDD2D6; --soft:#F4F5F3;
+  --hivis:#F2C230; --hivis-ink:#2A2100; --red:#B3261E; --red-soft:#F8E1DE; --amber:#9A5B00; --amber-soft:#FBEBCF;
+  --bar:#8A96A3; --focus:#2C6BED;
+  --cond:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif;
+  --sans:"Barlow","Segoe UI",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14181D; --panel:#1C2229; --ink:#E7EAED; --muted:#9BA4AE; --line:#2F3740; --soft:#222932;
+    --hivis:#E5B71F; --hivis-ink:#1E1800; --red:#F0786E; --red-soft:#3A1F1D; --amber:#E7A743; --amber-soft:#382A14;
+    --bar:#6F7B88; --focus:#7AA7FF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14181D; --panel:#1C2229; --ink:#E7EAED; --muted:#9BA4AE; --line:#2F3740; --soft:#222932;
+  --hivis:#E5B71F; --hivis-ink:#1E1800; --red:#F0786E; --red-soft:#3A1F1D; --amber:#E7A743; --amber-soft:#382A14;
+  --bar:#6F7B88; --focus:#7AA7FF; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1440px;margin:0 auto;padding:28px clamp(14px,3vw,36px) 48px}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* Header */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:22px}
+h1{font:700 clamp(40px,6vw,64px)/.9 var(--cond);letter-spacing:-.01em;margin:0}
+.asof{color:var(--muted);font-size:14px;margin-top:8px}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:14px}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.warn{color:var(--red);border-color:var(--red)}
+.btn[hidden]{display:none}
+
+/* Job bays */
+.bays{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--line);background:var(--panel);border-radius:8px;overflow:hidden}
+.bay{all:unset;box-sizing:border-box;cursor:pointer;padding:16px 18px 18px;border-right:1px solid var(--line);position:relative;display:flex;flex-direction:column;gap:2px}
+.bay:last-child{border-right:0}
+.bay:hover{background:var(--soft)}
+.bay:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.bay[aria-pressed="true"]{background:var(--soft)}
+.bay[aria-pressed="true"]::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--hivis)}
+.bay-job{font:600 15px/1.2 var(--cond);color:var(--muted);letter-spacing:.02em}
+.bay-name{font:700 22px/1.1 var(--cond)}
+.bay-money{font:700 clamp(34px,4vw,44px)/1 var(--cond);margin-top:10px;font-variant-numeric:tabular-nums}
+.bay-money small{font-size:.45em;font-weight:600;color:var(--muted);margin-left:2px}
+.bay-line{font-size:13.5px;color:var(--muted);margin-top:6px}
+.bay-line b{color:var(--ink);font-weight:600}
+.bay-flags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;min-height:22px}
+
+.pill{display:inline-block;font:600 12px/1 var(--sans);padding:4px 7px;border-radius:4px;white-space:nowrap}
+.pill.red{background:var(--red-soft);color:var(--red)}
+.pill.amber{background:var(--amber-soft);color:var(--amber)}
+.pill.hivis{background:var(--hivis);color:var(--hivis-ink)}
+.pill.grey{background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 12px}
+.controls input[type=search]{flex:1 1 220px;min-width:180px;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.controls select{padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.count{color:var(--muted);font-size:14px;margin-left:auto}
+
+/* Table */
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:1160px;font-variant-numeric:tabular-nums}
+thead th{position:sticky;top:0;background:var(--panel);text-align:left;font:600 14px/1.2 var(--cond);letter-spacing:.02em;color:var(--muted);padding:12px 12px 10px;border-bottom:2px solid var(--ink);white-space:nowrap}
+thead th button{all:unset;cursor:pointer}
+thead th button:focus-visible{outline:2px solid var(--focus)}
+thead th[aria-sort="ascending"] button::after{content:" ▲";font-size:10px}
+thead th[aria-sort="descending"] button::after{content:" ▼";font-size:10px}
+th.num,td.num{text-align:right}
+tbody td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.editable{cursor:pointer}
+tbody tr.editable:hover td{background:var(--soft)}
+tbody tr.calledoff td{background:color-mix(in srgb,var(--hivis) 12%,transparent)}
+tbody tr.returned td{color:var(--muted)}
+.main{font-weight:600}
+.sub{color:var(--muted);font-size:13px;line-height:1.3}
+.jobcell .main{font-family:var(--cond);font-size:16px}
+.days{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.days b{font:700 20px/1 var(--cond);min-width:3ch;text-align:right}
+.days .track{width:64px;height:6px;background:var(--soft);border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.days .fill{height:100%;background:var(--bar)}
+.days.mid b{color:var(--amber)} .days.mid .fill{background:var(--amber)}
+.days.long b{color:var(--red)} .days.long .fill{background:var(--red)}
+.est{color:var(--muted);font-size:12px}
+.late{color:var(--amber);font-weight:600}
+.callbtn{border:1px dashed var(--muted);background:transparent;border-radius:5px;padding:4px 10px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted)}
+.callbtn:hover{border-style:solid;color:var(--ink)}
+tfoot td{padding:12px;font:700 17px/1 var(--cond);border-top:2px solid var(--ink);background:var(--panel)}
+.empty{padding:48px 20px;text-align:center;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:13px;margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:2px;display:inline-block}
+.notice{margin-top:14px;padding:12px 14px;border-radius:6px;background:var(--amber-soft);color:var(--amber);font-size:14px}
+.notice[hidden]{display:none}
+
+/* Dialog */
+dialog{border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);padding:0;width:min(560px,94vw);max-height:90vh}
+dialog::backdrop{background:rgba(10,14,20,.45)}
+.dlg-head{padding:18px 20px 6px}
+.dlg-head h2{font:700 26px/1.1 var(--cond);margin:0}
+.dlg-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.dlg-body{padding:12px 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px}
+.dlg-body label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+.dlg-body label.full{grid-column:1/-1}
+.dlg-body input,.dlg-body select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font-weight:500;font-size:15px}
+.dlg-body .sect{grid-column:1/-1;font:700 15px/1 var(--cond);letter-spacing:.02em;border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
+.dlg-foot{display:flex;flex-wrap:wrap;gap:8px;padding:14px 20px 18px;border-top:1px solid var(--line)}
+.dlg-foot .spacer{flex:1}
+.pill.sched{background:transparent;color:var(--ink);border:1.5px dashed var(--hivis)}
+tbody tr.scheduled td{background:color-mix(in srgb,var(--hivis) 5%,transparent)}
+.tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.who{margin-top:6px!important;font-size:13px!important}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 14px 12px 16px;border-radius:8px;display:flex;gap:12px;align-items:center;max-width:min(600px,92vw);font-size:14px;box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:50}
+.toast[hidden]{display:none}
+.toast a,.toast button{color:var(--bg);font-weight:600;background:none;border:1px solid currentColor;border-radius:5px;padding:4px 10px;cursor:pointer;text-decoration:none;font-size:13px;white-space:nowrap}
+.toast #toastX{border:0;padding:4px 6px}
+.err{grid-column:1/-1;color:var(--red);font-size:14px;min-height:0}
+@media (max-width:560px){.dlg-body{grid-template-columns:1fr}.bay{border-right:0;border-bottom:1px solid var(--line)}.bay:last-child{border-bottom:0}}
+@media print{.controls,.top-actions,.callbtn,.legend{display:none!important}body{background:#fff}.tablewrap{overflow:visible}table{min-width:0;font-size:11px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>On-Rent Board</h1>
+      <div class="asof" id="asof">Loading board…</div>
+    </div>
+    <div class="top-actions">
+      <button class="btn" id="csvBtn">Download CSV</button>
+      <button class="btn" id="signBtn">Editor sign-in</button>
+      <button class="btn primary" id="addBtn" hidden>Add unit</button>
+    </div>
+  </header>
+
+  <section class="bays" id="bays" aria-label="Jobs"></section>
+
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search equipment #, equipment, PO #" aria-label="Search">
+    <select id="job" aria-label="Project">
+      <option value="all">All projects</option>
+      <option value="25-013">25-013 Oyster</option>
+      <option value="25-014">25-014 Strange Brew</option>
+      <option value="25-016">25-016 Envision</option>
+    </select>
+    <select id="vendor" aria-label="Vendor"><option value="all">All vendors</option></select>
+    <select id="status" aria-label="Status">
+      <option value="active">On rent + called off</option>
+      <option value="on">On rent only</option>
+      <option value="scheduled">Call-off scheduled (future date)</option>
+      <option value="calledoff">Called off, awaiting pickup</option>
+      <option value="returned">Picked up</option>
+      <option value="all">Everything</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="tablewrap">
+    <table id="tbl">
+      <thead><tr>
+        <th data-k="job"><button>Job</button></th>
+        <th data-k="unit"><button>Equipment #</button></th>
+        <th data-k="vendor"><button>Vendor</button></th>
+        <th data-k="model"><button>Equipment</button></th>
+        <th data-k="po"><button>PO #</button></th>
+        <th data-k="start"><button>On rent since</button></th>
+        <th data-k="days" class="num"><button>Days on rent</button></th>
+        <th data-k="monthly" class="num"><button>Run rate / mo</button></th>
+        <th data-k="schedOff"><button>Sched. off-rent</button></th>
+        <th data-k="nextBill"><button>Next bill</button></th>
+        <th data-k="calloff"><button>Call-off date</button></th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+      <tfoot id="foot"></tfoot>
+    </table>
+    <div class="empty" id="empty" hidden></div>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw" style="background:var(--bar)"></i>Under 90 days</span>
+    <span><i class="sw" style="background:var(--amber)"></i>90–179 days</span>
+    <span><i class="sw" style="background:var(--red)"></i>180+ days</span>
+    <span><i class="sw" style="background:var(--hivis)"></i>Called off, awaiting pickup (days stop at call-off)</span>
+    <span><i class="sw" style="border:1.5px dashed var(--hivis)"></i>Call-off scheduled (still billing until the date)</span>
+    <span>~ start date back-figured from the vendor's day count</span>
+  </div>
+  <div class="notice" id="notice" hidden></div>
+</div>
+
+<dialog id="dlg">
+  <form method="dialog" id="frm">
+    <div class="dlg-head"><h2 id="dTitle">Unit</h2><p id="dSub"></p><p id="dWho" class="who"></p></div>
+    <div class="dlg-body">
+      <label>Job #<select id="fJob">
+        <option value="25-013|Oyster">25-013 Oyster</option>
+        <option value="25-014|Strange Brew">25-014 Strange Brew</option>
+        <option value="25-016|Envision">25-016 Envision</option>
+      </select></label>
+      <label>Vendor<input id="fVendor" list="vendorList" required></label>
+      <label>Equipment #<input id="fUnit" placeholder="Unit / equipment ID"></label>
+      <label>PO #<input id="fPo"></label>
+      <label class="full">Equipment (make / model)<input id="fModel" required></label>
+      <label class="full">Class / description<input id="fCls"></label>
+      <label>On rent since<input type="date" id="fStart" required></label>
+      <label>$ / month<input type="number" id="fMonthly" min="0" step="1"></label>
+      <label>Sched. off-rent<input type="date" id="fSched"></label>
+      <label>Next bill<input type="date" id="fNext"></label>
+      <div class="sect">Call-off</div>
+      <label>Call-off date<input type="date" id="fCalloff"></label>
+      <label>Call-off / pickup #<input id="fCalloffNo"></label>
+      <label class="full">Notes<input id="fNotes"></label>
+      <div class="err" id="fErr"></div>
+    </div>
+    <div class="dlg-foot">
+      <button type="button" class="btn warn" id="delBtn">Delete</button>
+      <button type="button" class="btn" id="pickBtn">Mark picked up</button>
+      <button type="button" class="btn" id="backBtn">Put back on rent</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn" id="cancelBtn">Cancel</button>
+      <button type="submit" class="btn primary" id="saveBtn">Save</button>
+    </div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" hidden><span id="toastMsg"></span><span id="toastAct"></span><button type="button" id="toastX" aria-label="Dismiss">✕</button></div>
+<dialog id="sdlg">
+  <form method="dialog" id="sfrm">
+    <div class="dlg-head"><h2>Editor sign-in</h2><p>Paste your GitHub access token for this board. Viewers don't need to sign in.</p></div>
+    <div class="dlg-body">
+      <label class="full">GitHub access token<input type="password" id="sTok" autocomplete="off" spellcheck="false"></label>
+      <label class="full" style="flex-direction:row;align-items:center;gap:8px;font-weight:500"><input type="checkbox" id="sRem"> Remember on this computer</label>
+      <div class="err" id="sErr"></div>
+    </div>
+    <div class="dlg-foot"><span class="spacer"></span><button type="button" class="btn" id="sCancel">Cancel</button><button type="submit" class="btn primary" id="sOk">Sign in</button></div>
+  </form>
+</dialog>
+<datalist id="vendorList"><option value="EquipmentShare"><option value="United Rentals"><option value="Cat Rentals"><option value="Sunbelt Rentals"><option value="Herc Rentals"></datalist>
+
+<script>
+(function(){
+  /* ---------- settings ---------- */
+  const NOTIFY_TO="Stephen@pioneerelectricgrp.com";  // call-off email goes here
+  const BRANCH="main", PATH="data.json";
+  const JOBS=[["25-013","Oyster"],["25-014","Strange Brew"],["25-016","Envision"]];
+  function repoFromLocation(){
+    const m=location.hostname.match(/^([^.]+)\.github\.io$/i); if(!m)return null;
+    const seg=location.pathname.split("/").filter(Boolean)[0];
+    return {owner:m[1],repo:(seg&&!/\.html?$/i.test(seg))?seg:(m[1]+".github.io")};
+  }
+  const REPO=repoFromLocation();
+  const TOKEN_KEY="onrent-token:"+(REPO?REPO.owner+"/"+REPO.repo:"local");
+
+  const S={doc:null,units:[],loaded:false,job:"all",vendor:"all",status:"active",q:"",sortK:"days",sortDir:-1,canWrite:false,token:null,who:null,editing:null,busy:false};
+  const $=id=>document.getElementById(id);
+  const el=(t,c,txt)=>{const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;};
+  const money=n=>"$"+Math.round(n||0).toLocaleString("en-US");
+  const today=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate());};
+  const parse=s=>{if(!s)return null;const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);};
+  const fmt=s=>{const d=parse(s);if(!d)return "";return String(d.getMonth()+1).padStart(2,"0")+"/"+String(d.getDate()).padStart(2,"0")+"/"+String(d.getFullYear()).slice(2);};
+  const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  const longDate=s=>{const d=parse(s);return d?d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"}):"";};
+
+  function stat(u){ if(u.status==="returned")return "returned"; if(u.calloff){return parse(u.calloff)>today()?"scheduled":"calledoff";} return "on"; }
+  const billing=u=>{const s=stat(u);return s==="on"||s==="scheduled";};
+  function days(u){
+    const s=parse(u.start); if(!s)return null;
+    let end=today(); const c=parse(u.calloff); if(c&&c<end)end=c;
+    return Math.max(0,Math.round((end-s)/864e5));
+  }
+  const pastSched=u=>{const so=parse(u.schedOff);return so&&so<today()&&stat(u)==="on";};
+
+  /* ---------- GitHub storage ---------- */
+  const dec=b64=>{const bin=atob(b64.replace(/\s/g,""));return new TextDecoder().decode(Uint8Array.from(bin,c=>c.charCodeAt(0)));};
+  const enc=str=>{const bytes=new TextEncoder().encode(str);let bin="";for(let i=0;i<bytes.length;i+=0x8000)bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+0x8000));return btoa(bin);};
+  async function gh(path,opts,token){
+    opts=opts||{};
+    const r=await fetch("https://api.github.com"+path,{method:opts.method||"GET",body:opts.body,cache:"no-store",
+      headers:{"Accept":"application/vnd.github+json","Authorization":"Bearer "+(token||S.token),"X-GitHub-Api-Version":"2022-11-28"}});
+    if(!r.ok){let m="";try{m=(await r.json()).message;}catch(e){} const e=new Error(m||("GitHub error "+r.status));e.status=r.status;throw e;}
+    return r.json();
+  }
+  const contentsUrl=()=>"/repos/"+REPO.owner+"/"+REPO.repo+"/contents/"+PATH;
+
+  async function load(){
+    try{
+      let doc;
+      if(S.canWrite){const c=await gh(contentsUrl()+"?ref="+BRANCH);doc=JSON.parse(dec(c.content));}
+      else{const r=await fetch(PATH+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error("data.json not found ("+r.status+")");doc=await r.json();}
+      S.doc=doc;S.units=Array.isArray(doc.units)?doc.units:[];S.loaded=true;$("notice").hidden=true;render();
+    }catch(e){S.loaded=true;$("notice").hidden=false;$("notice").textContent="Couldn't load the board data. "+e.message;render();}
+  }
+  // Re-reads the latest file, applies the change, and commits it. Re-reading first keeps two saves from overwriting each other.
+  async function commit(mutate,message){
+    for(let attempt=0;attempt<2;attempt++){
+      const c=await gh(contentsUrl()+"?ref="+BRANCH);
+      const doc=JSON.parse(dec(c.content)); if(!Array.isArray(doc.units))doc.units=[];
+      mutate(doc); doc.updated=new Date().toISOString();
+      try{
+        await gh(contentsUrl(),{method:"PUT",body:JSON.stringify({message,content:enc(JSON.stringify(doc,null,1)+"\n"),sha:c.sha,branch:BRANCH})});
+        S.doc=doc;S.units=doc.units;render();return;
+      }catch(e){ if(e.status===409&&attempt===0)continue; throw e; }
+    }
+  }
+  const patchUnit=(id,patch)=>doc=>{const u=doc.units.find(x=>x.id===id);if(!u)throw new Error("That unit is no longer on the board. Reload and try again.");Object.assign(u,patch);};
+
+  /* ---------- render ---------- */
+  function renderBays(){
+    const box=$("bays"); box.textContent="";
+    const all=[["all","All jobs"],...JOBS];
+    for(const [job,name] of all){
+      const us=S.units.filter(u=>job==="all"||u.job===job);
+      const on=us.filter(billing), co=us.filter(u=>stat(u)==="calledoff"), sch=us.filter(u=>stat(u)==="scheduled");
+      const noPo=us.filter(u=>stat(u)!=="returned"&&!u.po).length;
+      const long=on.filter(u=>(days(u)||0)>=180).length;
+      const late=us.filter(pastSched).length;
+      const b=el("button","bay"); b.type="button"; b.setAttribute("aria-pressed",String(S.job===job));
+      b.append(el("span","bay-job",job==="all"?"Company total":"Job "+job), el("span","bay-name",name));
+      const m=el("span","bay-money",money(on.reduce((a,u)=>a+(+u.monthly||0),0))); m.append(el("small",null,"/mo"));
+      b.append(m);
+      const ln=el("span","bay-line"); ln.append(el("b",null,String(on.length))," on rent");
+      if(sch.length){ln.append(", ",el("b",null,String(sch.length))," call-off scheduled");}
+      if(co.length){ln.append(", ",el("b",null,String(co.length))," called off");}
+      b.append(ln);
+      const f=el("span","bay-flags");
+      if(long)f.append(el("span","pill red",long+" at 180+ days"));
+      if(late)f.append(el("span","pill amber",late+" past sched. off"));
+      if(noPo)f.append(el("span","pill red",noPo+" no PO"));
+      b.append(f);
+      b.addEventListener("click",()=>{S.job=job;render();});
+      box.append(b);
+    }
+  }
+  function visible(){
+    const q=S.q.trim().toLowerCase();
+    return S.units.filter(u=>{
+      const st=stat(u);
+      if(S.job!=="all"&&u.job!==S.job)return false;
+      if(S.vendor!=="all"&&u.vendor!==S.vendor)return false;
+      if(S.status==="active"&&st==="returned")return false;
+      if(S.status!=="active"&&S.status!=="all"&&st!==S.status)return false;
+      if(q&&![u.unit,u.model,u.cls,u.po,u.vendor,u.jobName,u.job,u.calloffNo,u.notes].join(" ").toLowerCase().includes(q))return false;
+      return true;
+    }).sort((a,b)=>{
+      const k=S.sortK; let x,y;
+      if(k==="days"){x=days(a)??-1;y=days(b)??-1;}
+      else if(k==="monthly"){x=+a.monthly||0;y=+b.monthly||0;}
+      else {x=(a[k]||"").toString().toLowerCase();y=(b[k]||"").toString().toLowerCase(); if(!x&&y)return 1; if(x&&!y)return -1;}
+      if(x<y)return -S.sortDir; if(x>y)return S.sortDir;
+      return (days(b)||0)-(days(a)||0);
+    });
+  }
+  function renderTable(){
+    const tb=$("rows"); tb.textContent="";
+    document.querySelectorAll("thead th").forEach(th=>th.setAttribute("aria-sort",th.dataset.k===S.sortK?(S.sortDir>0?"ascending":"descending"):"none"));
+    const list=visible();
+    for(const u of list){
+      const st=stat(u), d=days(u);
+      const tr=el("tr",st==="on"?"":st);
+      if(S.canWrite){tr.classList.add("editable");tr.tabIndex=0;tr.addEventListener("click",()=>openDlg(u));tr.addEventListener("keydown",e=>{if(e.key==="Enter")openDlg(u);});}
+      let td=el("td","jobcell"); td.append(el("div","main",u.job),el("div","sub",u.jobName)); tr.append(td);
+      td=el("td"); if(u.unit)td.append(el("div","main",u.unit)); else td.append(el("span","pill grey","Not on vendor report")); tr.append(td);
+      tr.append(el("td",null,u.vendor||"—"));
+      td=el("td"); td.append(el("div","main",u.model),el("div","sub",u.cls||"")); if(u.notes)td.append(el("div","sub","Note: "+u.notes));
+      if(Array.isArray(u.tags)&&u.tags.length){const tg=el("div","tags");u.tags.forEach(t=>tg.append(el("span","pill "+(/billed/i.test(t)?"red":"amber"),t)));td.append(tg);}
+      tr.append(td);
+      td=el("td"); if(u.po)td.append(el("div","main",u.po)); else td.append(el("span","pill red","No PO")); tr.append(td);
+      td=el("td"); td.append(el("span",null,(u.estStart?"~":"")+fmt(u.start))); if(u.estStart)td.append(el("div","est","back-figured")); tr.append(td);
+      td=el("td","num"); const dw=el("div","days"+(d>=180?" long":d>=90?" mid":""));
+      dw.append(el("b",null,d==null?"—":String(d)));
+      const trk=el("span","track"); const fill=el("span","fill"); fill.style.display="block"; fill.style.width=Math.min(100,(d||0)/365*100)+"%"; trk.append(fill); dw.append(trk);
+      td.append(dw); tr.append(td);
+      tr.append(el("td","num main",money(u.monthly)));
+      td=el("td"); if(u.schedOff){td.append(el("span",pastSched(u)?"late":null,fmt(u.schedOff))); if(pastSched(u))td.append(el("div","sub","past due"));} else td.append(el("span","sub","—")); tr.append(td);
+      tr.append(el("td",null,u.nextBill?fmt(u.nextBill):"—"));
+      td=el("td");
+      if(st==="returned"){td.append(el("span","pill grey","Picked up"));if(u.calloff)td.append(el("div","sub","Called off "+fmt(u.calloff)));}
+      else if(st==="scheduled"){td.append(el("span","pill sched",fmt(u.calloff)));td.append(el("div","sub","scheduled"+(u.calloffNo?", # "+u.calloffNo:"")));}
+      else if(u.calloff){td.append(el("span","pill hivis",fmt(u.calloff)));if(u.calloffNo)td.append(el("div","sub","# "+u.calloffNo));}
+      else if(S.canWrite){const b=el("button","callbtn","Call off");b.type="button";b.addEventListener("click",e=>{e.stopPropagation();openDlg(u,true);});td.append(b);}
+      else td.append(el("span","sub","—"));
+      tr.append(td);
+      tb.append(tr);
+    }
+    const foot=$("foot"); foot.textContent="";
+    const emp=$("empty");
+    if(!list.length){
+      emp.hidden=false;
+      emp.textContent=!S.loaded?"Loading units…":S.units.length?"No units match these filters.":(S.canWrite?"No units on the board yet. Use Add unit to start.":"No units on the board yet.");
+    } else {
+      emp.hidden=true;
+      const r=el("tr"); const a=el("td",null,list.length+" units"); a.colSpan=7;
+      r.append(a, el("td","num",money(list.filter(billing).reduce((s,u)=>s+(+u.monthly||0),0))));
+      const t=el("td","sub","run rate, called-off units excluded"); t.colSpan=3; t.style.font="500 13px var(--sans)"; r.append(t);
+      foot.append(r);
+    }
+    $("count").textContent=list.length+" of "+S.units.length+" units";
+  }
+  function renderMeta(){
+    const m=S.doc;
+    let txt="Days on rent count live to today, "+today().toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})+".";
+    if(m&&m.asOf)txt="Vendor on-rent reports as of "+longDate(m.asOf)+". "+txt+" Vendor reports count to their own run date, so their day counts can trail this board by a few days.";
+    if(m&&m.updated){const u=new Date(m.updated);if(!isNaN(u))txt+=" Last saved "+u.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+".";}
+    $("asof").textContent=S.loaded?txt:"Loading board…";
+    const sel=$("vendor"), cur=sel.value, vs=[...new Set(S.units.map(u=>u.vendor).filter(Boolean))].sort();
+    sel.textContent=""; sel.append(new Option("All vendors","all")); vs.forEach(v=>sel.append(new Option(v,v)));
+    sel.value=vs.includes(cur)?cur:"all"; S.vendor=sel.value;
+    $("signBtn").textContent=S.canWrite?"Sign out ("+(S.who||"editor")+")":"Editor sign-in";
+    $("addBtn").hidden=!S.canWrite;
+  }
+  function render(){$("job").value=S.job;renderMeta();renderBays();renderTable();}
+
+  /* ---------- controls ---------- */
+  $("q").addEventListener("input",e=>{S.q=e.target.value;renderTable();});
+  $("job").addEventListener("change",e=>{S.job=e.target.value;render();});
+  $("vendor").addEventListener("change",e=>{S.vendor=e.target.value;renderTable();});
+  $("status").addEventListener("change",e=>{S.status=e.target.value;renderTable();});
+  document.querySelectorAll("thead th").forEach(th=>th.querySelector("button").addEventListener("click",()=>{
+    const k=th.dataset.k; if(S.sortK===k)S.sortDir*=-1; else{S.sortK=k;S.sortDir=(k==="days"||k==="monthly")?-1:1;} renderTable();
+  }));
+
+  /* ---------- editor sign-in ---------- */
+  const sdlg=$("sdlg");
+  $("signBtn").addEventListener("click",()=>{
+    if(S.canWrite){try{localStorage.removeItem(TOKEN_KEY);sessionStorage.removeItem(TOKEN_KEY);}catch(e){} S.canWrite=false;S.token=null;S.who=null;load();return;}
+    if(!REPO){toast("Editor sign-in only works on the published github.io page.");return;}
+    $("sErr").textContent="";$("sTok").value="";sdlg.showModal();$("sTok").focus();
+  });
+  $("sCancel").addEventListener("click",()=>sdlg.close());
+  async function tryToken(token){
+    const repo=await gh("/repos/"+REPO.owner+"/"+REPO.repo,null,token);
+    if(!repo.permissions||!repo.permissions.push)throw new Error("This GitHub account can't edit the board's repository.");
+    let who=null; try{const me=await gh("/user",null,token);who=me.name||me.login;}catch(e){}
+    S.token=token;S.canWrite=true;S.who=who;
+  }
+  $("sfrm").addEventListener("submit",async e=>{
+    e.preventDefault(); const tok=$("sTok").value.trim(); if(!tok)return;
+    $("sOk").disabled=true;$("sErr").textContent="";
+    try{
+      await tryToken(tok);
+      try{ if($("sRem").checked)localStorage.setItem(TOKEN_KEY,tok); else sessionStorage.setItem(TOKEN_KEY,tok);}catch(e){}
+      sdlg.close(); await load(); toast("Signed in as editor.");
+    }catch(err){$("sErr").textContent=err.status===401?"That token wasn't accepted. Check it and try again.":err.message;}
+    finally{$("sOk").disabled=false;}
+  });
+
+  /* ---------- unit editor ---------- */
+  const dlg=$("dlg");
+  function openDlg(u,focusCall){
+    S.editing=u||null; $("fErr").textContent="";
+    const isNew=!u; u=u||{job:S.job!=="all"?S.job:"25-013",vendor:"",unit:"",po:"",model:"",cls:"",start:iso(today()),monthly:"",schedOff:"",nextBill:"",calloff:"",calloffNo:"",notes:"",status:"on"};
+    $("dTitle").textContent=isNew?"Add unit":(u.model||"Unit");
+    $("dSub").textContent=isNew?"Adds a unit to the board.":["Equipment # "+(u.unit||"not on vendor report"),u.vendor,u.job+" "+u.jobName].filter(Boolean).join(", ");
+    $("dWho").textContent=(!isNew&&u.calloff&&u.calloffEnteredOn)?("Call-off entered "+fmt(u.calloffEnteredOn)+(u.calloffBy?" by "+u.calloffBy:"")):"";
+    const jobOpt=[...$("fJob").options].find(o=>o.value.startsWith(u.job+"|")); $("fJob").value=jobOpt?jobOpt.value:$("fJob").options[0].value;
+    $("fVendor").value=u.vendor||""; $("fUnit").value=u.unit||""; $("fPo").value=u.po||"";
+    $("fModel").value=u.model||""; $("fCls").value=u.cls||""; $("fStart").value=u.start||"";
+    $("fMonthly").value=u.monthly===""?"":(u.monthly??""); $("fSched").value=u.schedOff||""; $("fNext").value=u.nextBill||"";
+    $("fCalloff").value=u.calloff||(focusCall?iso(today()):""); $("fCalloffNo").value=u.calloffNo||""; $("fNotes").value=u.notes||"";
+    $("delBtn").hidden=isNew; $("pickBtn").hidden=isNew||u.status==="returned"; $("backBtn").hidden=isNew||u.status!=="returned";
+    dlg.showModal();
+    (focusCall?$("fCalloffNo"):$("fPo")).focus();
+  }
+  $("cancelBtn").addEventListener("click",()=>dlg.close());
+  $("addBtn").addEventListener("click",()=>openDlg(null));
+  function collect(){
+    const [job,jobName]=$("fJob").value.split("|");
+    return {job,jobName,vendor:$("fVendor").value.trim(),unit:$("fUnit").value.trim(),po:$("fPo").value.trim(),
+      model:$("fModel").value.trim(),cls:$("fCls").value.trim(),start:$("fStart").value,
+      monthly:$("fMonthly").value===""?0:Math.round(+$("fMonthly").value),schedOff:$("fSched").value,nextBill:$("fNext").value,
+      calloff:$("fCalloff").value,calloffNo:$("fCalloffNo").value.trim(),notes:$("fNotes").value.trim()};
+  }
+  async function write(fn){
+    const btns=dlg.querySelectorAll(".dlg-foot button"); btns.forEach(b=>b.disabled=true); $("fErr").textContent="Saving…";
+    try{await fn();dlg.close();return true;}
+    catch(e){
+      $("fErr").textContent=e.status===401?"Your sign-in expired. Sign out and sign in again.":e.status===403||e.status===404?"Not saved. This sign-in can't write to the board's repository.":"Couldn't save: "+(e.message||"try again")+".";
+      return false;
+    } finally{btns.forEach(b=>b.disabled=false);}
+  }
+  const label=u=>u.job+" "+(u.unit||u.model);
+  $("frm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const v=collect();
+    if(!v.vendor||!v.model||!v.start){$("fErr").textContent="Vendor, equipment and on-rent date are required.";return;}
+    if(v.calloff&&v.calloff<v.start){$("fErr").textContent="Call-off date can't be before the on-rent date.";return;}
+    const base=S.editing, prev=base?(base.calloff||""):"";
+    const callChanged=!!v.calloff&&v.calloff!==prev;
+    if(callChanged){v.calloffBy=S.who||"editor";v.calloffEnteredOn=iso(today());}
+    if(!v.calloff){v.calloffBy="";v.calloffEnteredOn="";}
+    write(async()=>{
+      if(base){
+        const patch={...v}; if(v.start!==base.start)patch.estStart=false;
+        await commit(patchUnit(base.id,patch),(callChanged?"Call-off: ":prev&&!v.calloff?"Cancel call-off: ":"Edit: ")+label({...base,...v}));
+      } else {
+        const nu={id:"u-"+Date.now().toString(36),...v,estStart:false,status:"on",tags:[],source:"Added on board"};
+        await commit(doc=>{doc.units.push(nu);},"Add unit: "+label(nu));
+      }
+    }).then(ok=>{if(ok&&callChanged)notify({...(base||{}),...v});});
+  });
+  $("pickBtn").addEventListener("click",()=>{
+    if(!S.editing)return; const v=collect(), base=S.editing;
+    const extra=v.calloff?{}:{calloff:iso(today()),calloffBy:S.who||"editor",calloffEnteredOn:iso(today())};
+    write(()=>commit(patchUnit(base.id,{...v,...extra,status:"returned",returnedOn:iso(today())}),"Picked up: "+label(base)));
+  });
+  $("backBtn").addEventListener("click",()=>{
+    if(!S.editing)return; const base=S.editing;
+    write(()=>commit(patchUnit(base.id,{status:"on",returnedOn:"",calloff:"",calloffNo:"",calloffBy:"",calloffEnteredOn:""}),"Back on rent: "+label(base)));
+  });
+  $("delBtn").addEventListener("click",()=>{
+    if(!S.editing)return;
+    if($("delBtn").dataset.armed!=="1"){$("delBtn").dataset.armed="1";$("delBtn").textContent="Click again to delete";setTimeout(()=>{$("delBtn").dataset.armed="";$("delBtn").textContent="Delete";},3000);return;}
+    $("delBtn").dataset.armed="";$("delBtn").textContent="Delete"; const base=S.editing;
+    write(()=>commit(doc=>{doc.units=doc.units.filter(x=>x.id!==base.id);},"Delete: "+label(base)));
+  });
+
+  /* ---------- call-off email ---------- */
+  let toastTimer=null;
+  function toast(msg,act){
+    clearTimeout(toastTimer);
+    $("toastMsg").textContent=msg; const a=$("toastAct"); a.textContent="";
+    if(act&&act.href){const l=el("a",null,act.label);l.href=act.href;l.addEventListener("click",()=>{setTimeout(()=>{$("toast").hidden=true;},500);});a.append(l);}
+    $("toast").hidden=false;
+    if(!act)toastTimer=setTimeout(()=>{$("toast").hidden=true;},8000);
+  }
+  $("toastX").addEventListener("click",()=>{$("toast").hidden=true;});
+  function notify(u){
+    const d=days(u);
+    const subject=("Call-Off: "+u.job+" "+u.jobName+" - Equip # "+(u.unit||"N/A")+" - "+u.vendor+" "+u.model+" - "+fmt(u.calloff)).replace(/\s+/g," ");
+    const body=["A call-off was entered on the On-Rent Board.","",
+      "Job: "+u.job+" "+u.jobName,"Equipment #: "+(u.unit||"Not on vendor report"),"Vendor: "+u.vendor,
+      "Equipment: "+u.model+(u.cls?" ("+u.cls+")":""),"PO #: "+(u.po||"NO PO"),"On rent since: "+(u.estStart?"~":"")+fmt(u.start),
+      "Days on rent at call-off: "+(d==null?"-":d),"Run rate / mo: "+money(u.monthly),"Call-off date: "+fmt(u.calloff),
+      "Call-off / pickup #: "+(u.calloffNo||"-"),"Notes: "+(u.notes||"-"),"Entered: "+fmt(iso(today()))+(S.who?" by "+S.who:"")].join("\r\n");
+    toast("Call-off saved. Viewers see it within a few minutes.",{href:"mailto:"+NOTIFY_TO+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body),label:"Email draft"});
+  }
+
+  /* ---------- CSV ---------- */
+  $("csvBtn").addEventListener("click",()=>{
+    const cols=[["Job","job"],["Project","jobName"],["Equipment #","unit"],["Vendor","vendor"],["Equipment","model"],["Class","cls"],["PO #","po"],["On Rent Since","start"],["Days On Rent",null],["Run Rate / Mo","monthly"],["Sched. Off-Rent","schedOff"],["Next Bill","nextBill"],["Call-Off Date","calloff"],["Call-Off #","calloffNo"],["Status",null],["Flags",null],["Call-Off Entered","calloffEnteredOn"],["Notes","notes"]];
+    const q=v=>{v=v==null?"":String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
+    const lab={on:"On rent",scheduled:"Call-off scheduled",calledoff:"Called off",returned:"Picked up"};
+    const dates=["start","schedOff","nextBill","calloff","calloffEnteredOn"];
+    const lines=[cols.map(c=>q(c[0])).join(",")];
+    for(const u of visible())lines.push(cols.map(([h,k])=>q(h==="Days On Rent"?days(u):h==="Status"?lab[stat(u)]:h==="Flags"?(u.tags||[]).join("; "):dates.includes(k)?fmt(u[k]):u[k])).join(","));
+    const blob=new Blob([lines.join("\r\n")],{type:"text/csv"}); const a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="On-Rent Board "+iso(today())+".csv"; document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  });
+
+  /* ---------- boot ---------- */
+  render();
+  (async()=>{
+    let tok=null; try{tok=sessionStorage.getItem(TOKEN_KEY)||localStorage.getItem(TOKEN_KEY);}catch(e){}
+    if(tok&&REPO){try{await tryToken(tok);}catch(e){try{localStorage.removeItem(TOKEN_KEY);sessionStorage.removeItem(TOKEN_KEY);}catch(x){} toast("Editor sign-in expired. Sign in again to make changes.");}}
+    await load();
+    // Viewers pick up changes every 2 minutes.
+    setInterval(()=>{if(!dlg.open&&!sdlg.open&&document.visibilityState==="visible")load();},120000);
+  })();
+})();
+</script>
+</body>
+</html>
