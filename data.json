@@ -1,7 +1,7 @@
 {
- "asOf": "2026-10-12",
- "updated": "2026-10-16T12:38:37.750Z",
- "source": "Weekly vendor on-rent reports (EquipmentShare, United Rentals, Cat Rentals); UR equipment #s from 10/14 reports",
+ "asOf": "2026-10-16",
+ "updated": "2026-10-16T15:44:17Z",
+ "source": "Vendor on-rent reports of 10/16/26 (EquipmentShare, Cat Rentals, United Rentals)",
  "units": [
   {
    "calloff": "",
@@ -12,16 +12,14 @@
    "jobName": "Oyster",
    "model": "ATLAS COPCO QAS 70",
    "monthly": 2745,
-   "nextBill": "2026-10-14",
+   "nextBill": "2026-11-11",
    "notes": "",
    "po": "25-013-031",
    "schedOff": "2026-05-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-29",
    "status": "on",
-   "tags": [
-    "Low use 7d"
-   ],
+   "tags": [],
    "unit": "377278",
    "vendor": "EquipmentShare",
    "id": "25-013-01"
@@ -35,7 +33,7 @@
    "jobName": "Oyster",
    "model": "AIRMAN SDG65S-8E1",
    "monthly": 2745,
-   "nextBill": "2026-10-14",
+   "nextBill": "2026-11-11",
    "notes": "",
    "po": "25-013-031",
    "schedOff": "2026-09-27",
@@ -44,7 +42,8 @@
    "status": "on",
    "unit": "635610",
    "vendor": "EquipmentShare",
-   "id": "25-013-02"
+   "id": "25-013-02",
+   "tags": []
   },
   {
    "calloff": "",
@@ -64,7 +63,8 @@
    "status": "on",
    "unit": "562339",
    "vendor": "EquipmentShare",
-   "id": "25-013-03"
+   "id": "25-013-03",
+   "tags": []
   },
   {
    "calloff": "",
@@ -98,7 +98,7 @@
    "jobName": "Oyster",
    "model": "ATLAS COPCO QAS25 CWK",
    "monthly": 1352,
-   "nextBill": "2026-10-14",
+   "nextBill": "2026-11-11",
    "notes": "",
    "po": "25-013-031",
    "schedOff": "2026-05-27",
@@ -121,7 +121,7 @@
    "jobName": "Oyster",
    "model": "ATLAS COPCO QAS25 CWK",
    "monthly": 1352,
-   "nextBill": "2026-10-14",
+   "nextBill": "2026-11-11",
    "notes": "",
    "po": "25-013-031",
    "schedOff": "2026-09-27",
@@ -130,7 +130,10 @@
    "status": "on",
    "unit": "250838",
    "vendor": "EquipmentShare",
-   "id": "25-013-06"
+   "id": "25-013-06",
+   "tags": [
+    "Idle 7d"
+   ]
   },
   {
    "calloff": "",
@@ -141,7 +144,7 @@
    "jobName": "Oyster",
    "model": "MULTIQUIP DCA45SSIU4F",
    "monthly": 905,
-   "nextBill": "2026-10-15",
+   "nextBill": "2026-11-12",
    "notes": "",
    "po": "25-013-031",
    "schedOff": "2026-08-01",
@@ -150,7 +153,8 @@
    "status": "on",
    "unit": "718304",
    "vendor": "EquipmentShare",
-   "id": "25-013-07"
+   "id": "25-013-07",
+   "tags": []
   },
   {
    "calloff": "",
@@ -170,7 +174,10 @@
    "status": "on",
    "unit": "619908",
    "vendor": "EquipmentShare",
-   "id": "25-013-08"
+   "id": "25-013-08",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -211,9 +218,7 @@
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-14",
    "status": "on",
-   "tags": [
-    "Low use 7d"
-   ],
+   "tags": [],
    "unit": "581902",
    "vendor": "EquipmentShare",
    "id": "25-013-10"
@@ -259,7 +264,8 @@
    "status": "on",
    "unit": "112227",
    "vendor": "EquipmentShare",
-   "id": "25-013-12"
+   "id": "25-013-12",
+   "tags": []
   },
   {
    "calloff": "",
@@ -301,7 +307,7 @@
    "start": "2026-05-11",
    "status": "on",
    "tags": [
-    "Idle 7d"
+    "Low use 7d"
    ],
    "unit": "435947",
    "vendor": "EquipmentShare",
@@ -325,7 +331,10 @@
    "status": "on",
    "unit": "453051",
    "vendor": "EquipmentShare",
-   "id": "25-013-15"
+   "id": "25-013-15",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -345,7 +354,8 @@
    "status": "on",
    "unit": "545490",
    "vendor": "EquipmentShare",
-   "id": "25-013-16"
+   "id": "25-013-16",
+   "tags": []
   },
   {
    "calloff": "",
@@ -365,7 +375,10 @@
    "status": "on",
    "unit": "758304",
    "vendor": "EquipmentShare",
-   "id": "25-013-17"
+   "id": "25-013-17",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -385,7 +398,10 @@
    "status": "on",
    "unit": "758309",
    "vendor": "EquipmentShare",
-   "id": "25-013-18"
+   "id": "25-013-18",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -405,7 +421,10 @@
    "status": "on",
    "unit": "66566",
    "vendor": "EquipmentShare",
-   "id": "25-013-19"
+   "id": "25-013-19",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -817,7 +836,7 @@
    "nextBill": "2026-11-03",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-12",
+   "schedOff": "2026-11-09",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-10-07",
    "status": "on",
@@ -840,13 +859,16 @@
    "nextBill": "2026-10-26",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-12",
+   "schedOff": "2026-11-09",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-10-27",
    "status": "on",
    "unit": "353571",
    "vendor": "EquipmentShare",
-   "id": "25-014-03"
+   "id": "25-014-03",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -860,13 +882,16 @@
    "nextBill": "2026-11-06",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-12",
+   "schedOff": "2026-11-09",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-07-17",
    "status": "on",
    "unit": "314263",
    "vendor": "EquipmentShare",
-   "id": "25-014-04"
+   "id": "25-014-04",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -886,7 +911,8 @@
    "status": "on",
    "unit": "119572",
    "vendor": "EquipmentShare",
-   "id": "25-014-05"
+   "id": "25-014-05",
+   "tags": []
   },
   {
    "calloff": "",
@@ -897,16 +923,17 @@
    "jobName": "Strange Brew",
    "model": "POLARIS Pro XD Crew (Canopy)",
    "monthly": 651,
-   "nextBill": "2026-10-14",
+   "nextBill": "2026-11-11",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-14",
+   "schedOff": "2026-10-21",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-11-12",
    "status": "on",
    "unit": "494035",
    "vendor": "EquipmentShare",
-   "id": "25-014-06"
+   "id": "25-014-06",
+   "tags": []
   },
   {
    "calloff": "",
@@ -920,13 +947,14 @@
    "nextBill": "2026-10-22",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-12",
+   "schedOff": "2026-11-09",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-09-25",
    "status": "on",
    "unit": "500297",
    "vendor": "EquipmentShare",
-   "id": "25-014-07"
+   "id": "25-014-07",
+   "tags": []
   },
   {
    "calloff": "",
@@ -940,7 +968,7 @@
    "nextBill": "2026-10-29",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-12",
+   "schedOff": "2026-11-09",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-02-19",
    "status": "on",
@@ -963,13 +991,14 @@
    "nextBill": "2026-10-29",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-12",
+   "schedOff": "2026-11-09",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-02-19",
    "status": "on",
    "unit": "650799",
    "vendor": "EquipmentShare",
-   "id": "25-014-09"
+   "id": "25-014-09",
+   "tags": []
   },
   {
    "calloff": "",
@@ -1060,10 +1089,10 @@
    "jobName": "Envision",
    "model": "JL 65' MANLIFT WELDER READY",
    "monthly": 2440,
-   "nextBill": "2026-10-13",
+   "nextBill": "2026-11-10",
    "notes": "",
    "po": "",
-   "schedOff": "2026-10-13",
+   "schedOff": "2026-11-13",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-15",
    "status": "on",
@@ -1080,10 +1109,10 @@
    "jobName": "Envision",
    "model": "G2 60' ARTICULATING MANLIFT WELDER READY",
    "monthly": 2389,
-   "nextBill": "2026-10-13",
+   "nextBill": "2026-11-10",
    "notes": "",
    "po": "",
-   "schedOff": "2026-10-13",
+   "schedOff": "2026-11-13",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-15",
    "status": "on",
@@ -1120,7 +1149,7 @@
    "jobName": "Envision",
    "model": "JLG EC600SJ",
    "monthly": 3020,
-   "nextBill": "2026-10-09",
+   "nextBill": "2026-11-06",
    "notes": "",
    "po": "25-016-020",
    "schedOff": "2026-10-01",
@@ -1129,7 +1158,8 @@
    "status": "on",
    "unit": "321227",
    "vendor": "EquipmentShare",
-   "id": "25-016-04"
+   "id": "25-016-04",
+   "tags": []
   },
   {
    "calloff": "",
@@ -1149,7 +1179,8 @@
    "status": "on",
    "unit": "114877",
    "vendor": "EquipmentShare",
-   "id": "25-016-05"
+   "id": "25-016-05",
+   "tags": []
   },
   {
    "calloff": "",
@@ -1169,7 +1200,8 @@
    "status": "on",
    "unit": "655689",
    "vendor": "EquipmentShare",
-   "id": "25-016-06"
+   "id": "25-016-06",
+   "tags": []
   },
   {
    "calloff": "",
@@ -1189,7 +1221,10 @@
    "status": "on",
    "unit": "219367",
    "vendor": "EquipmentShare",
-   "id": "25-016-07"
+   "id": "25-016-07",
+   "tags": [
+    "Low use 7d"
+   ]
   },
   {
    "calloff": "",
@@ -1209,7 +1244,8 @@
    "status": "on",
    "unit": "709445",
    "vendor": "EquipmentShare",
-   "id": "25-016-08"
+   "id": "25-016-08",
+   "tags": []
   },
   {
    "calloff": "",
@@ -1247,9 +1283,7 @@
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-02-12",
    "status": "on",
-   "tags": [
-    "Low use 7d"
-   ],
+   "tags": [],
    "unit": "12231910",
    "vendor": "United Rentals",
    "id": "25-016-10"
