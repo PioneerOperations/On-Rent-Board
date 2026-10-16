@@ -1,6 +1,6 @@
 {
  "asOf": "2026-10-12",
- "updated": "2026-10-15T12:00:00Z",
+ "updated": "2026-10-16T12:38:37.750Z",
  "source": "Weekly vendor on-rent reports (EquipmentShare, United Rentals, Cat Rentals); UR equipment #s from 10/14 reports",
  "units": [
   {
@@ -484,10 +484,11 @@
    "schedOff": "",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-06-30",
-   "status": "on",
+   "status": "returned",
    "unit": "12069977",
    "vendor": "United Rentals",
-   "id": "25-013-23"
+   "id": "25-013-23",
+   "returnedOn": "2026-10-16"
   },
   {
    "calloff": "",
