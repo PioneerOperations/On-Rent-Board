@@ -1,6 +1,6 @@
 {
  "asOf": "2026-10-16",
- "updated": "2026-10-16T15:44:17Z",
+ "updated": "2026-10-23T21:12:15.565Z",
  "source": "Vendor on-rent reports of 10/16/26 (EquipmentShare, Cat Rentals, United Rentals)",
  "units": [
   {
@@ -1081,7 +1081,7 @@
    "id": "25-014-13"
   },
   {
-   "calloff": "",
+   "calloff": "2026-10-23",
    "calloffNo": "",
    "cls": "Cat class 1511171",
    "estStart": false,
@@ -1098,7 +1098,9 @@
    "status": "on",
    "unit": "EQN127588",
    "vendor": "Cat Rentals",
-   "id": "25-016-01"
+   "id": "25-016-01",
+   "calloffBy": "PioneerElectricGroup",
+   "calloffEnteredOn": "2026-10-23"
   },
   {
    "calloff": "",
