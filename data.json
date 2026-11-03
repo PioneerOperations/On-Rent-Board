@@ -1,6 +1,6 @@
 {
  "asOf": "2026-10-16",
- "updated": "2026-10-23T21:12:15.565Z",
+ "updated": "2026-11-03T18:43:34.501Z",
  "source": "Vendor on-rent reports of 10/16/26 (EquipmentShare, Cat Rentals, United Rentals)",
  "units": [
   {
@@ -823,9 +823,9 @@
    "id": "25-014-01"
   },
   {
-   "calloff": "2026-11-02",
-   "calloffBy": "Stephen Skinner",
-   "calloffEnteredOn": "2026-10-14",
+   "calloff": "2026-11-16",
+   "calloffBy": "PioneerElectricGroup",
+   "calloffEnteredOn": "2026-11-03",
    "calloffNo": "",
    "cls": "Mini Excavator 15,000 - 20,000 lbs",
    "estStart": false,
