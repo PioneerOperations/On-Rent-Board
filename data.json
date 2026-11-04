@@ -1,6 +1,6 @@
 {
  "asOf": "2026-10-16",
- "updated": "2026-11-04T12:31:53.110Z",
+ "updated": "2026-11-04T12:32:11.548Z",
  "source": "Vendor on-rent reports of 10/16/26 (EquipmentShare, Cat Rentals, United Rentals)",
  "units": [
   {
@@ -142,8 +142,8 @@
    "calloffEnteredOn": "2026-11-04"
   },
   {
-   "calloff": "",
-   "calloffNo": "",
+   "calloff": "2026-11-04",
+   "calloffNo": "11/6/26",
    "cls": "Diesel Generator 36kW/45kVA",
    "estStart": false,
    "job": "25-013",
@@ -160,7 +160,9 @@
    "unit": "718304",
    "vendor": "EquipmentShare",
    "id": "25-013-07",
-   "tags": []
+   "tags": [],
+   "calloffBy": "PioneerElectricGroup",
+   "calloffEnteredOn": "2026-11-04"
   },
   {
    "calloff": "",
