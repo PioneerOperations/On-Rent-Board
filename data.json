@@ -1,7 +1,7 @@
 {
- "asOf": "2026-10-16",
- "updated": "2026-11-12T12:07:23.195Z",
- "source": "Vendor on-rent reports of 10/16/26 (EquipmentShare, Cat Rentals, United Rentals)",
+ "asOf": "2026-11-13",
+ "updated": "2026-11-14T15:26:06Z",
+ "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
    "calloff": "2026-11-04",
@@ -60,17 +60,20 @@
    "jobName": "Oyster",
    "model": "GENIE GTH-636",
    "monthly": 1650,
-   "nextBill": "2026-10-22",
+   "nextBill": "2026-11-19",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-09",
    "status": "on",
    "unit": "562339",
    "vendor": "EquipmentShare",
    "id": "25-013-03",
-   "tags": []
+   "tags": [],
+   "util7": 8.46,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -81,23 +84,24 @@
    "jobName": "Oyster",
    "model": "GENIE Z-45/25J DC",
    "monthly": 1630,
-   "nextBill": "2026-11-03",
+   "nextBill": "2026-12-01",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-05-19",
    "status": "on",
-   "tags": [
-    "Idle 7d"
-   ],
+   "tags": [],
    "unit": "303951",
    "vendor": "EquipmentShare",
-   "id": "25-013-04"
+   "id": "25-013-04",
+   "util7": 0,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
-   "calloff": "",
-   "calloffNo": "",
+   "calloff": "2026-11-09",
+   "calloffNo": "8078577",
    "cls": "Diesel Generator 20kW/25kVA",
    "estStart": false,
    "job": "25-013",
@@ -110,13 +114,14 @@
    "schedOff": "2026-05-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-29",
-   "status": "on",
-   "tags": [
-    "Idle 7d"
-   ],
+   "status": "returned",
+   "tags": [],
    "unit": "236039",
    "vendor": "EquipmentShare",
-   "id": "25-013-05"
+   "id": "25-013-05",
+   "calloffBy": "EquipmentShare off-rent confirmation",
+   "calloffEnteredOn": "2026-11-14",
+   "returnedOn": "2026-11-09"
   },
   {
    "calloff": "2026-11-04",
@@ -137,9 +142,7 @@
    "unit": "250838",
    "vendor": "EquipmentShare",
    "id": "25-013-06",
-   "tags": [
-    "Idle 7d"
-   ],
+   "tags": [],
    "calloffBy": "PioneerElectricGroup",
    "calloffEnteredOn": "2026-11-04",
    "returnedOn": "2026-11-10"
@@ -177,19 +180,20 @@
    "jobName": "Oyster",
    "model": "MEC 3232SE",
    "monthly": 900,
-   "nextBill": "2026-10-20",
+   "nextBill": "2026-11-17",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-06-02",
    "status": "on",
    "unit": "619908",
    "vendor": "EquipmentShare",
    "id": "25-013-08",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 0.06,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -200,19 +204,20 @@
    "jobName": "Oyster",
    "model": "MEC MME20",
    "monthly": 900,
-   "nextBill": "2026-10-29",
+   "nextBill": "2026-11-26",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-16",
    "status": "on",
-   "tags": [
-    "Idle 7d"
-   ],
+   "tags": [],
    "unit": "758303",
    "vendor": "EquipmentShare",
-   "id": "25-013-09"
+   "id": "25-013-09",
+   "util7": 1.04,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -223,17 +228,20 @@
    "jobName": "Oyster",
    "model": "MEC 3232SE",
    "monthly": 900,
-   "nextBill": "2026-10-27",
+   "nextBill": "2026-11-24",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-14",
    "status": "on",
    "tags": [],
    "unit": "581902",
    "vendor": "EquipmentShare",
-   "id": "25-013-10"
+   "id": "25-013-10",
+   "util7": 0.03,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -244,19 +252,20 @@
    "jobName": "Oyster",
    "model": "MEC 3232SE",
    "monthly": 900,
-   "nextBill": "2026-10-22",
+   "nextBill": "2026-11-19",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-09",
    "status": "on",
-   "tags": [
-    "Low use 7d"
-   ],
+   "tags": [],
    "unit": "441819",
    "vendor": "EquipmentShare",
-   "id": "25-013-11"
+   "id": "25-013-11",
+   "util7": 2.86,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -267,17 +276,20 @@
    "jobName": "Oyster",
    "model": "SULLAIR 185-DPQ",
    "monthly": 653,
-   "nextBill": "2026-10-26",
-   "notes": "",
+   "nextBill": "2026-11-23",
+   "notes": "Asset swapped 112227 to 112228 on same rental #3782867 (EquipmentShare)",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-13",
    "status": "on",
-   "unit": "112227",
+   "unit": "112228",
    "vendor": "EquipmentShare",
    "id": "25-013-12",
-   "tags": []
+   "tags": [],
+   "util7": 0,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -288,19 +300,20 @@
    "jobName": "Oyster",
    "model": "JCB S2632E",
    "monthly": 560,
-   "nextBill": "2026-10-30",
+   "nextBill": "2026-11-27",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-04",
    "status": "on",
-   "tags": [
-    "Idle 7d"
-   ],
+   "tags": [],
    "unit": "480219",
    "vendor": "EquipmentShare",
-   "id": "25-013-13"
+   "id": "25-013-13",
+   "util7": 0,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -311,19 +324,20 @@
    "jobName": "Oyster",
    "model": "MEC Micro 26",
    "monthly": 560,
-   "nextBill": "2026-10-26",
+   "nextBill": "2026-11-23",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-05-11",
    "status": "on",
-   "tags": [
-    "Low use 7d"
-   ],
+   "tags": [],
    "unit": "435947",
    "vendor": "EquipmentShare",
-   "id": "25-013-14"
+   "id": "25-013-14",
+   "util7": 3.23,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -334,19 +348,20 @@
    "jobName": "Oyster",
    "model": "MEC Micro 26",
    "monthly": 560,
-   "nextBill": "2026-10-26",
+   "nextBill": "2026-11-23",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-05-11",
    "status": "on",
    "unit": "453051",
    "vendor": "EquipmentShare",
    "id": "25-013-15",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 1.82,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -357,17 +372,20 @@
    "jobName": "Oyster",
    "model": "KUBOTA RTV-X1140W-H (Canopy)",
    "monthly": 550,
-   "nextBill": "2026-11-05",
+   "nextBill": "2026-12-03",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-23",
    "status": "on",
    "unit": "545490",
    "vendor": "EquipmentShare",
    "id": "25-013-16",
-   "tags": []
+   "tags": [],
+   "util7": 6.75,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -378,19 +396,20 @@
    "jobName": "Oyster",
    "model": "MEC MME20",
    "monthly": 495,
-   "nextBill": "2026-10-29",
+   "nextBill": "2026-11-26",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-29",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-03",
    "status": "on",
    "unit": "758304",
    "vendor": "EquipmentShare",
    "id": "25-013-17",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 0,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -401,19 +420,20 @@
    "jobName": "Oyster",
    "model": "MEC MME20",
    "monthly": 495,
-   "nextBill": "2026-10-28",
+   "nextBill": "2026-11-25",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-28",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-02",
    "status": "on",
    "unit": "758309",
    "vendor": "EquipmentShare",
    "id": "25-013-18",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 2.96,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -424,19 +444,20 @@
    "jobName": "Oyster",
    "model": "GENIE GR-20",
    "monthly": 440,
-   "nextBill": "2026-10-26",
+   "nextBill": "2026-11-23",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-05-11",
    "status": "on",
    "unit": "66566",
    "vendor": "EquipmentShare",
    "id": "25-013-19",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 2.67,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -450,13 +471,15 @@
    "nextBill": "",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-13",
    "status": "on",
    "unit": "Bulk Item - 783831",
    "vendor": "EquipmentShare",
-   "id": "25-013-20"
+   "id": "25-013-20",
+   "util7": null,
+   "utilStale": false
   },
   {
    "calloff": "",
@@ -470,13 +493,15 @@
    "nextBill": "",
    "notes": "",
    "po": "25-013-031",
-   "schedOff": "2026-10-30",
+   "schedOff": "2026-11-27",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-04-13",
    "status": "on",
    "unit": "Bulk Item - 5940708",
    "vendor": "EquipmentShare",
-   "id": "25-013-21"
+   "id": "25-013-21",
+   "util7": null,
+   "utilStale": false
   },
   {
    "calloff": "",
@@ -542,7 +567,10 @@
    ],
    "unit": "12085961",
    "vendor": "United Rentals",
-   "id": "25-013-24"
+   "id": "25-013-24",
+   "util7": 58.52,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -823,16 +851,18 @@
    "jobName": "Strange Brew",
    "model": "CATERPILLAR 5.5K LB (TH255) TELEHANDLER",
    "monthly": 1600,
-   "nextBill": "2026-10-20",
+   "nextBill": "2026-11-17",
    "notes": "",
    "po": "25-014-039",
-   "schedOff": "2026-10-20",
+   "schedOff": "2026-11-17",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-06-02",
    "status": "on",
    "unit": "EM2171431",
    "vendor": "Cat Rentals",
-   "id": "25-014-01"
+   "id": "25-014-01",
+   "util7": null,
+   "utilStale": false
   },
   {
    "calloff": "2026-11-16",
@@ -845,19 +875,20 @@
    "jobName": "Strange Brew",
    "model": "TAKEUCHI TB290-CR",
    "monthly": 2955,
-   "nextBill": "2026-11-03",
+   "nextBill": "2026-12-01",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-11-09",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-10-07",
    "status": "on",
-   "tags": [
-    "Idle 7d"
-   ],
+   "tags": [],
    "unit": "419832",
    "vendor": "EquipmentShare",
-   "id": "25-014-02"
+   "id": "25-014-02",
+   "util7": 0,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -868,19 +899,20 @@
    "jobName": "Strange Brew",
    "model": "JOHN DEERE 317G",
    "monthly": 2115,
-   "nextBill": "2026-10-26",
+   "nextBill": "2026-11-23",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-11-09",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-10-27",
    "status": "on",
    "unit": "353571",
    "vendor": "EquipmentShare",
    "id": "25-014-03",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 5.34,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -891,19 +923,20 @@
    "jobName": "Strange Brew",
    "model": "SKYJACK SJ4740",
    "monthly": 1117,
-   "nextBill": "2026-11-06",
+   "nextBill": "2026-12-04",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-11-09",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-07-17",
    "status": "on",
    "unit": "314263",
    "vendor": "EquipmentShare",
    "id": "25-014-04",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 0.75,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -914,17 +947,20 @@
    "jobName": "Strange Brew",
    "model": "ATLAS COPCO XAS188",
    "monthly": 740,
-   "nextBill": "2026-10-19",
+   "nextBill": "2026-11-16",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-19",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-01-12",
    "status": "on",
    "unit": "119572",
    "vendor": "EquipmentShare",
    "id": "25-014-05",
-   "tags": []
+   "tags": [],
+   "util7": 1.36,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -935,17 +971,20 @@
    "jobName": "Strange Brew",
    "model": "POLARIS Pro XD Crew (Canopy)",
    "monthly": 651,
-   "nextBill": "2026-11-11",
+   "nextBill": "2026-12-09",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-21",
+   "schedOff": "2026-12-02",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-11-12",
    "status": "on",
    "unit": "494035",
    "vendor": "EquipmentShare",
    "id": "25-014-06",
-   "tags": []
+   "tags": [],
+   "util7": 13.96,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -956,17 +995,20 @@
    "jobName": "Strange Brew",
    "model": "POLARIS Pro XD Crew (Canopy)",
    "monthly": 651,
-   "nextBill": "2026-10-22",
+   "nextBill": "2026-11-19",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-11-09",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-09-25",
    "status": "on",
    "unit": "500297",
    "vendor": "EquipmentShare",
    "id": "25-014-07",
-   "tags": []
+   "tags": [],
+   "util7": 11.1,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -977,19 +1019,20 @@
    "jobName": "Strange Brew",
    "model": "POLARIS Pro XD Crew (Canopy Half Doors)",
    "monthly": 586,
-   "nextBill": "2026-10-29",
+   "nextBill": "2026-11-26",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-11-09",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-02-19",
    "status": "on",
-   "tags": [
-    "Idle 7d"
-   ],
+   "tags": [],
    "unit": "651188",
    "vendor": "EquipmentShare",
-   "id": "25-014-08"
+   "id": "25-014-08",
+   "util7": 0,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -1000,17 +1043,20 @@
    "jobName": "Strange Brew",
    "model": "POLARIS Pro XD Crew (Canopy Half Doors)",
    "monthly": 586,
-   "nextBill": "2026-10-29",
+   "nextBill": "2026-11-26",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-11-09",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-02-19",
    "status": "on",
    "unit": "650799",
    "vendor": "EquipmentShare",
    "id": "25-014-09",
-   "tags": []
+   "tags": [],
+   "util7": 7.22,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -1024,13 +1070,15 @@
    "nextBill": "",
    "notes": "",
    "po": "25-014-003",
-   "schedOff": "2026-10-19",
+   "schedOff": "2026-11-16",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-01-12",
    "status": "on",
    "unit": "Bulk Item - 783831",
    "vendor": "EquipmentShare",
-   "id": "25-014-10"
+   "id": "25-014-10",
+   "util7": null,
+   "utilStale": false
   },
   {
    "calloff": "",
@@ -1041,16 +1089,18 @@
    "jobName": "Strange Brew",
    "model": "Fuel Tank 500 Gallon DW-H",
    "monthly": 1,
-   "nextBill": "2026-10-26",
+   "nextBill": "2026-11-23",
    "notes": "",
    "po": "25-014-023",
-   "schedOff": "2026-10-31",
+   "schedOff": "2026-11-30",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2025-10-27",
    "status": "on",
    "unit": "RR-609607",
    "vendor": "EquipmentShare",
-   "id": "25-014-11"
+   "id": "25-014-11",
+   "util7": null,
+   "utilStale": false
   },
   {
    "calloff": "",
@@ -1135,7 +1185,10 @@
    "vendor": "Cat Rentals",
    "id": "25-016-02",
    "calloffBy": "PioneerElectricGroup",
-   "calloffEnteredOn": "2026-11-03"
+   "calloffEnteredOn": "2026-11-03",
+   "util7": 3.7,
+   "utilStale": false,
+   "utilAsOf": "2026-11-08"
   },
   {
    "calloff": "2026-11-04",
@@ -1169,21 +1222,24 @@
    "jobName": "Envision",
    "model": "JLG EC600SJ",
    "monthly": 3020,
-   "nextBill": "2026-11-06",
+   "nextBill": "2026-12-04",
    "notes": "",
    "po": "25-016-020",
-   "schedOff": "2026-10-01",
+   "schedOff": "2026-12-02",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-11",
    "status": "on",
    "unit": "321227",
    "vendor": "EquipmentShare",
    "id": "25-016-04",
-   "tags": []
+   "tags": [],
+   "util7": 119.78,
+   "utilStale": true,
+   "utilAsOf": "2026-11-12"
   },
   {
-   "calloff": "",
-   "calloffNo": "",
+   "calloff": "2026-11-10",
+   "calloffNo": "9240732",
    "cls": "Rough Terrain Scissor Lift, 50' - 55' Wide Deck",
    "estStart": false,
    "job": "25-016",
@@ -1196,15 +1252,18 @@
    "schedOff": "2026-10-21",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-23",
-   "status": "on",
+   "status": "returned",
    "unit": "114877",
    "vendor": "EquipmentShare",
    "id": "25-016-05",
-   "tags": []
+   "tags": [],
+   "calloffBy": "EquipmentShare off-rent confirmation",
+   "calloffEnteredOn": "2026-11-14",
+   "returnedOn": "2026-11-10"
   },
   {
-   "calloff": "",
-   "calloffNo": "",
+   "calloff": "2026-11-10",
+   "calloffNo": "9240732",
    "cls": "Rough Terrain Scissor Lift, 50' - 55' Wide Deck",
    "estStart": false,
    "job": "25-016",
@@ -1217,11 +1276,14 @@
    "schedOff": "2026-10-21",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-23",
-   "status": "on",
+   "status": "returned",
    "unit": "655689",
    "vendor": "EquipmentShare",
    "id": "25-016-06",
-   "tags": []
+   "tags": [],
+   "calloffBy": "EquipmentShare off-rent confirmation",
+   "calloffEnteredOn": "2026-11-14",
+   "returnedOn": "2026-11-10"
   },
   {
    "calloff": "",
@@ -1232,19 +1294,20 @@
    "jobName": "Envision",
    "model": "MEC 4555SE",
    "monthly": 1260,
-   "nextBill": "2026-10-21",
+   "nextBill": "2026-11-18",
    "notes": "",
    "po": "25-016-020",
-   "schedOff": "2026-09-30",
+   "schedOff": "2026-11-30",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-07-29",
    "status": "on",
    "unit": "219367",
    "vendor": "EquipmentShare",
    "id": "25-016-07",
-   "tags": [
-    "Low use 7d"
-   ]
+   "tags": [],
+   "util7": 0.76,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -1255,17 +1318,20 @@
    "jobName": "Envision",
    "model": "MEC 4555SE",
    "monthly": 1260,
-   "nextBill": "2026-10-21",
+   "nextBill": "2026-11-18",
    "notes": "",
    "po": "25-016-020",
-   "schedOff": "2026-09-30",
+   "schedOff": "2026-11-30",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-07-29",
    "status": "on",
    "unit": "709445",
    "vendor": "EquipmentShare",
    "id": "25-016-08",
-   "tags": []
+   "tags": [],
+   "util7": 1.54,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -1285,7 +1351,10 @@
    "status": "on",
    "unit": "11918654",
    "vendor": "United Rentals",
-   "id": "25-016-09"
+   "id": "25-016-09",
+   "util7": 2.94,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
    "calloff": "",
@@ -1326,10 +1395,13 @@
    "status": "on",
    "unit": "11761249",
    "vendor": "United Rentals",
-   "id": "25-016-11"
+   "id": "25-016-11",
+   "util7": 10.99,
+   "utilStale": false,
+   "utilAsOf": "2026-11-12"
   },
   {
-   "calloff": "",
+   "calloff": "2026-11-11",
    "calloffNo": "",
    "cls": "CONTAINER 8X40X9'6\" HI CUBE",
    "estStart": true,
@@ -1343,10 +1415,13 @@
    "schedOff": "",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-02-15",
-   "status": "on",
+   "status": "returned",
    "unit": "11531209",
    "vendor": "United Rentals",
-   "id": "25-016-12"
+   "id": "25-016-12",
+   "calloffBy": "Picked up 11/11 per Josh Kelle; off UR 11/13 report",
+   "calloffEnteredOn": "2026-11-14",
+   "returnedOn": "2026-11-11"
   },
   {
    "calloff": "",
@@ -1389,7 +1464,7 @@
    "id": "25-016-14"
   },
   {
-   "calloff": "",
+   "calloff": "2026-11-11",
    "calloffNo": "",
    "cls": "CONTAINER 8X20X8'6\"",
    "estStart": true,
@@ -1403,10 +1478,13 @@
    "schedOff": "",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-01-15",
-   "status": "on",
+   "status": "returned",
    "unit": "12095755",
    "vendor": "United Rentals",
-   "id": "25-016-15"
+   "id": "25-016-15",
+   "calloffBy": "Picked up 11/11 per Josh Kelle; off UR 11/13 report",
+   "calloffEnteredOn": "2026-11-14",
+   "returnedOn": "2026-11-11"
   },
   {
    "calloff": "",
@@ -1447,6 +1525,30 @@
    "unit": "6002410",
    "vendor": "United Rentals",
    "id": "25-016-17"
+  },
+  {
+   "id": "25-016-18",
+   "job": "25-016",
+   "jobName": "Envision",
+   "vendor": "Cat Rentals",
+   "unit": "EQN292182",
+   "model": "JL 60' ELECTRIC MANLIFT",
+   "cls": "Cat class 1511048",
+   "po": "",
+   "start": "2026-11-04",
+   "estStart": false,
+   "schedOff": "2026-12-02",
+   "monthly": 3141,
+   "nextBill": "2026-12-03",
+   "calloff": "",
+   "calloffNo": "",
+   "status": "on",
+   "notes": "",
+   "tags": [],
+   "util7": 5.07,
+   "utilStale": false,
+   "utilAsOf": "2026-11-08",
+   "source": "Cat Rentals On Rent report 11/9/26"
   }
  ]
 }
