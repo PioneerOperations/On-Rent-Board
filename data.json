@@ -1,6 +1,6 @@
 {
  "asOf": "2026-11-13",
- "updated": "2026-11-19T20:02:33.265Z",
+ "updated": "2026-11-19T20:11:56.066Z",
  "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
@@ -1551,6 +1551,29 @@
    "utilStale": false,
    "utilAsOf": "2026-11-08",
    "source": "Cat Rentals On Rent report 11/9/26"
+  },
+  {
+   "id": "u-mwnzkmek",
+   "job": "25-013",
+   "jobName": "Oyster",
+   "vendor": "United Rentals",
+   "unit": "3101532",
+   "po": "25-013-017",
+   "model": "A",
+   "cls": "32 ft. Vertical mast boom lift, electric",
+   "start": "2026-11-19",
+   "monthly": 2280,
+   "schedOff": "",
+   "nextBill": "2026-12-19",
+   "calloff": "",
+   "calloffNo": "",
+   "notes": "",
+   "calloffBy": "",
+   "calloffEnteredOn": "",
+   "estStart": false,
+   "status": "on",
+   "tags": [],
+   "source": "Added on board"
   }
  ]
 }
