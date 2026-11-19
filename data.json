@@ -1,6 +1,6 @@
 {
  "asOf": "2026-11-13",
- "updated": "2026-11-19T20:17:24.726Z",
+ "updated": "2026-11-19T20:18:09.843Z",
  "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
@@ -1537,7 +1537,7 @@
    "unit": "EQN292182",
    "model": "JL 60' ELECTRIC MANLIFT",
    "cls": "Cat class 1511048",
-   "po": "",
+   "po": "25-016-016",
    "start": "2026-11-04",
    "estStart": false,
    "schedOff": "2026-12-02",
@@ -1551,7 +1551,9 @@
    "util7": 5.07,
    "utilStale": false,
    "utilAsOf": "2026-11-08",
-   "source": "Cat Rentals On Rent report 11/9/26"
+   "source": "Cat Rentals On Rent report 11/9/26",
+   "calloffBy": "",
+   "calloffEnteredOn": ""
   },
   {
    "id": "u-mwnzkmek",
