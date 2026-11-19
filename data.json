@@ -1,6 +1,6 @@
 {
  "asOf": "2026-11-13",
- "updated": "2026-11-19T20:11:56.066Z",
+ "updated": "2026-11-19T20:17:24.726Z",
  "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
@@ -1182,7 +1182,7 @@
    "schedOff": "2026-11-13",
    "source": "Vendor on-rent report, week of 10.12",
    "start": "2026-09-15",
-   "status": "on",
+   "status": "returned",
    "unit": "EQN209021",
    "vendor": "Cat Rentals",
    "id": "25-016-02",
@@ -1190,7 +1190,8 @@
    "calloffEnteredOn": "2026-11-03",
    "util7": 3.7,
    "utilStale": false,
-   "utilAsOf": "2026-11-08"
+   "utilAsOf": "2026-11-08",
+   "returnedOn": "2026-11-19"
   },
   {
    "calloff": "2026-11-04",
