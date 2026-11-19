@@ -1,6 +1,6 @@
 {
  "asOf": "2026-11-13",
- "updated": "2026-11-14T15:26:06Z",
+ "updated": "2026-11-19T20:02:33.265Z",
  "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
@@ -92,12 +92,14 @@
    "start": "2026-05-19",
    "status": "on",
    "tags": [],
-   "unit": "303951",
+   "unit": "561728",
    "vendor": "EquipmentShare",
    "id": "25-013-04",
    "util7": 0,
    "utilStale": false,
-   "utilAsOf": "2026-11-12"
+   "utilAsOf": "2026-11-12",
+   "calloffBy": "",
+   "calloffEnteredOn": ""
   },
   {
    "calloff": "2026-11-09",
