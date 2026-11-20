@@ -1,6 +1,6 @@
 {
  "asOf": "2026-11-13",
- "updated": "2026-11-19T20:18:09.843Z",
+ "updated": "2026-11-20T15:24:49.964Z",
  "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
@@ -1560,9 +1560,9 @@
    "job": "25-013",
    "jobName": "Oyster",
    "vendor": "United Rentals",
-   "unit": "3101532",
+   "unit": "12186721",
    "po": "25-013-017",
-   "model": "A",
+   "model": "2026 MEC MME30-RJ",
    "cls": "32 ft. Vertical mast boom lift, electric",
    "start": "2026-11-19",
    "monthly": 2280,
