@@ -1,6 +1,6 @@
 {
  "asOf": "2026-11-13",
- "updated": "2026-11-23T19:29:10.973Z",
+ "updated": "2026-11-23T19:36:30.371Z",
  "source": "EquipmentShare & United Rentals reports 11/13/26; Cat Rentals 11/9/26; vendor off-rent confirmations",
  "units": [
   {
@@ -1571,6 +1571,29 @@
    "monthly": 2280,
    "schedOff": "",
    "nextBill": "2026-12-19",
+   "calloff": "",
+   "calloffNo": "",
+   "notes": "",
+   "calloffBy": "",
+   "calloffEnteredOn": "",
+   "estStart": false,
+   "status": "on",
+   "tags": [],
+   "source": "Added on board"
+  },
+  {
+   "id": "u-mwto2gwf",
+   "job": "25-013",
+   "jobName": "Oyster",
+   "vendor": "Equipment share",
+   "unit": "118427",
+   "po": "25-013-031",
+   "model": "GENIE GS-3232",
+   "cls": "Electric scissor lift, 32’ narrow",
+   "start": "2026-11-23",
+   "monthly": 900,
+   "schedOff": "2026-11-23",
+   "nextBill": "2026-11-27",
    "calloff": "",
    "calloffNo": "",
    "notes": "",
